@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"image/color"
 
 	"gonum.org/v1/plot"
@@ -42,12 +43,18 @@ func draw() {
 		if ok == false {
 			pts = pts[0:ptsindex]
 			addPoints(pts, p)
-			if err := p.Save((vg.Length)(xylimit)*vg.Inch, (vg.Length)(xylimit)*vg.Inch, "miner.png"); err != nil {
+
+			if err := p.Save((vg.Length)(xylimit)*vg.Inch, (vg.Length)(xylimit)*vg.Inch, imagename()); err != nil {
 				panic(err)
 			}
 			return
 		}
 	}
+}
+
+func imagename() string {
+	ret := fmt.Sprintf("image/%d-%d.png", xylimit, sumlimit)
+	return ret
 }
 
 func addPoints(pts plotter.XYs, p *plot.Plot) {

@@ -1,6 +1,6 @@
 package main
 
-// Point
+// Point Point
 type Point struct {
 	X int
 	Y int

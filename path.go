@@ -2,15 +2,7 @@ package main
 
 import "fmt"
 
-// UP x>=0  x -y  <= 0
-// UP x < =0  x+y  >= 0
-// Down x >= 0  x+y  <=0
-// Donw x  >=0  x >= y
-// Right y > =0  y <= x
-// Right y  <= 0 x+y  >= 0
-// 利用对称性
-// 结束条件 四个方向都不行 退出
-// (x,y ) (y, x)  (y, -x)(-x,y )  (-y, x)(x,-y ) (-y, -x) (-x,-y )
+// can be optimized from recursive to iterative
 func path(start Point) int {
 	ret := 0
 	upret := 0

@@ -5,8 +5,18 @@ import (
 	"os"
 )
 
+func pathrecordname() string {
+	ret := fmt.Sprintf("record/path-%d-%d.txt", xylimit, sumlimit)
+	return ret
+}
+
+func sumrecordname() string {
+	ret := fmt.Sprintf("record/sum-%d-%d.txt", xylimit, sumlimit)
+	return ret
+}
+
 func pathrecord() {
-	fw, _ := os.Create("record/path.txt")
+	fw, _ := os.Create(pathrecordname())
 	wg.Add(1)
 	defer wg.Done()
 	i := 0
@@ -23,7 +33,7 @@ func pathrecord() {
 }
 
 func sumrecord() {
-	fw, _ := os.Create("record/sum.txt")
+	fw, _ := os.Create(sumrecordname())
 	wg.Add(1)
 	defer wg.Done()
 	i := 0
